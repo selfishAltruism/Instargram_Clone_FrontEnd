@@ -1,6 +1,6 @@
 import { useState, useRef } from "react";
 
-import Loginout from "./loginout/Loginout";
+import Logout from "./loginout/Logout";
 
 import "./App.css";
 
@@ -15,7 +15,7 @@ function App() {
 
   const userKey = useRef<string>("");
 
-  return <>{pageState.split("-")[0] === "logoff" ? <Loginout /> : null}</>;
+  return <>{pageState.split("-")[0] === "logoff" ? <Logout /> : null}</>;
 }
 
 export default App;
