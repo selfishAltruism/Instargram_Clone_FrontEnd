@@ -42,7 +42,7 @@ function SigninForm() {
           type="text"
           {...register("password")}
         />
-        <input className="submitInput" type="submit" value="로그인" />
+        <input className="submitInput" type="submit" value="가입" />
       </form>
     </>
   );
