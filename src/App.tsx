@@ -2,13 +2,14 @@ import { useState, useRef } from "react";
 import { Provider, createStoreHook } from "react-redux";
 import { createStore } from "redux";
 
-import Logout from "./loginout/Logout";
+import Logout from "./logout/Logout";
+import Home from "./login/Home";
 
 import "./App.css";
 
 export type PageState =
   | { loginState: false; actionState: "login" | "signin" | "searchPW" }
-  | { loginState: true; actionState: "main" };
+  | { loginState: true; actionState: "home" };
 
 type Action =
   | { type: "login" }
@@ -16,14 +17,14 @@ type Action =
   | { type: "searchPW" }
   | { type: "logout" };
 
-let pageState: PageState = { loginState: false, actionState: "login" };
+let pageState: PageState = { loginState: true, actionState: "home" };
 
 function PageStateReducer(state = pageState, action: Action): PageState {
   const pageStateCopy = { ...state };
   switch (action.type) {
     case "login":
       pageStateCopy.loginState = true;
-      pageStateCopy.actionState = "main";
+      pageStateCopy.actionState = "home";
       return pageStateCopy;
     case "signin":
       pageStateCopy.actionState = "signin";
@@ -45,7 +46,7 @@ let store = createStore(PageStateReducer);
 function App() {
   return (
     <Provider store={store}>
-      {!pageState.loginState ? <Logout /> : null}
+      {!pageState.loginState ? <Logout /> : <Home />}
     </Provider>
   );
 }
