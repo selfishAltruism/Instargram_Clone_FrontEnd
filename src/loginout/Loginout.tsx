@@ -14,11 +14,21 @@ function Loginout() {
   return (
     <div className="loginoutPageContainer">
       <div className="loginoutDiv">
-        <span>Instargram Clone</span>
-        <form onSubmit={handleSubmit(onSubmit)}>
-          <input type="text" {...register("id")} />
-          <input type="text" {...register("password")} />
-          <input type="submit" value="로그인" />
+        <span className="loginoutTitle">Instargram Clone</span>
+        <form className="loginoutForm" onSubmit={handleSubmit(onSubmit)}>
+          <input
+            className="idInput"
+            placeholder="사용자 이름"
+            type="text"
+            {...register("id")}
+          />
+          <input
+            className="passwordInput"
+            placeholder="비밀번호"
+            type="text"
+            {...register("password")}
+          />
+          <input className="submitInput" type="submit" value="로그인" />
         </form>
         <span>-또는-</span>
         <button>Google으로 로그인</button>
