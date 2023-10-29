@@ -3,13 +3,7 @@ import { useForm, SubmitHandler } from "react-hook-form";
 import "./Logout.css";
 
 import LoginForm from "./LoginForm";
-
-type SigninIFormInput = {
-  email: string;
-  name: string;
-  id: string;
-  password: string;
-};
+import SigninForm from "./SigninForm";
 
 type SearchPasswordIFormInput = {
   id: string;
@@ -20,10 +14,8 @@ function Logout() {
     <div className="loginoutPageContainer">
       <div className="loginoutDiv">
         <span className="loginoutTitle">Instargram Clone</span>
+        {/* <SigninForm /> */}
         <LoginForm />
-        <span>-또는-</span>
-        <button>Google으로 로그인</button>
-        <button>비밀번호를 잊으셨나요?</button>
       </div>
       <div className="signinDiv">
         <span>계정이 없으신가요?</span>
