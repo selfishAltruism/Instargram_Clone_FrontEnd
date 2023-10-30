@@ -9,14 +9,15 @@ import {
   FiChevronRight,
 } from "react-icons/fi";
 
-import "./Post.css";
+import "./PostDetail.css";
+
 type Comment = {
   time: Date;
   userId: string;
   explanation: string;
 };
 
-function Post() {
+function PostDetail() {
   const dispatch = useDispatch();
   const pageState: PageState = useSelector((state: PageState) => state);
 
@@ -25,11 +26,7 @@ function Post() {
   const [commentState, SetCommentState] = useState<Comment[]>();
 
   return (
-    <div className="postContainer">
-      <div className="userProfile">
-        <div className="userImg"></div>
-        user
-      </div>
+    <div className="postDetailContainer">
       <div className="postImgDiv">
         <div className="postImg"></div>
         <button className="postImgLeftButton">
@@ -44,8 +41,8 @@ function Post() {
           <FiHeart /> <FiEdit3 />
         </div>
         <div className="heartState">좋아요 {3}개</div>
-        <div className="lastComment">
-          <span className="lastCommentUser">User </span>
+        <div className="Comment">
+          <span className="CommentUser">User </span>
           Last Comment Content
         </div>
         <div className="moreComment">더보기</div>
@@ -55,4 +52,4 @@ function Post() {
   );
 }
 
-export default Post;
+export default PostDetail;

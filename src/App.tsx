@@ -4,6 +4,8 @@ import { createStore } from "redux";
 
 import Logout from "./logout/Logout";
 import Home from "./login/Home";
+import Post from "./login/Post";
+import PostDetail from "./login/PostDetail";
 
 import "./App.css";
 
@@ -46,7 +48,9 @@ let store = createStore(PageStateReducer);
 function App() {
   return (
     <Provider store={store}>
-      {!pageState.loginState ? <Logout /> : <Home />}
+      {/* {!pageState.loginState ? <Logout /> : <Home />} */}
+      <Post />
+      {/* <PostDetail /> */}
     </Provider>
   );
 }

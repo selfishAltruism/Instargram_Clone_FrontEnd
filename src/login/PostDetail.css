@@ -1,0 +1,93 @@
+.postDetailContainer {
+  position: fixed;
+
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+  width: 700px;
+  height: 400px;
+
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+.postDetailContainer .postImgDiv {
+  position: relative;
+
+  width: 50%;
+  height: 100%;
+
+  background-color: red;
+}
+
+.postDetailContainer .postImg {
+  width: 100%;
+  height: 100%;
+
+  border: 0px;
+}
+
+.postDetailContainer .postImgLeftButton {
+  position: absolute;
+  top: 50%;
+  left: 3%;
+  transform: translate(0%, -50%);
+
+  background-color: transparent;
+
+  border: 0px;
+
+  font-size: 30px;
+}
+
+.postDetailContainer .postImgRightButton {
+  position: absolute;
+  top: 50%;
+  right: 3%;
+  transform: translate(0%, -50%);
+
+  background-color: transparent;
+
+  border: 0px;
+
+  font-size: 30px;
+}
+
+.postDetailContainer .postContentDiv {
+  width: 50%;
+  height: 100%;
+
+  display: flex;
+  flex-direction: column;
+}
+
+.postDetailContainer .userState {
+  font-size: 20px;
+}
+
+.postDetailContainer .heartState,
+.postDetailContainer .lastComment,
+.postDetailContainer .moreComment {
+  font-size: 11px;
+}
+
+.postDetailContainer .lastCommentUser,
+.heartState {
+  font-weight: bold;
+}
+
+.postDetailContainer .moreComment {
+  color: gray;
+}
+
+.postDetailContainer .writeComment {
+  border: 0px;
+}
+
+.postDetailContainer .writeComment::placeholder {
+  font-size: 11px;
+  color: black;
+}
