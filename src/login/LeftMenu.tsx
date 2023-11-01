@@ -9,7 +9,7 @@ import {
   FiUser,
 } from "react-icons/fi";
 
-import "./LeftMenu.css";
+import "./css/LeftMenu.css";
 
 function LeftMenu() {
   const dispatch = useDispatch();

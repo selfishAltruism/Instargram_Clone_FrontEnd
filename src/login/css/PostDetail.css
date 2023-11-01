@@ -12,6 +12,12 @@
   flex-direction: row;
   justify-content: center;
   align-items: center;
+
+  background-color: white;
+}
+
+.postDetailContainer * {
+  opacity: 1;
 }
 
 .postDetailContainer .postImgDiv {
@@ -62,28 +68,80 @@
 
   display: flex;
   flex-direction: column;
+  align-items: center;
+}
+
+.postDetailContainer .userProfile {
+  height: 35px;
+  width: 96%;
+  height: 10%;
+
+  border-bottom: 1px solid gainsboro;
+
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.postDetailContainer .block {
+  width: 5px;
+}
+
+.postDetailContainer .userImg {
+  height: 30px;
+  width: 30px;
+
+  border: 1px solid black;
+  border-radius: 15px;
+}
+
+.postDetailContainer .Comment {
+  height: 70%;
+  width: 96%;
+
+  display: flex;
+  flex-direction: column;
+  overflow-y: scroll;
+
+  border-bottom: 1px solid gainsboro;
+}
+
+.postDetailContainer .CommentUserProfile {
+  height: 50px;
+  width: 100%;
+
+  display: flex;
+  flex-direction: row;
+  align-items: center;
 }
 
 .postDetailContainer .userState {
   font-size: 20px;
+  width: 96%;
+  height: 10%;
+
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+
+  border-bottom: 1px solid gainsboro;
 }
 
 .postDetailContainer .heartState,
 .postDetailContainer .lastComment,
-.postDetailContainer .moreComment {
+.postDetailContainer .moreComment .postDetailContainer .userName {
   font-size: 11px;
 }
 
 .postDetailContainer .lastCommentUser,
+.postDetailContainer .userName,
 .heartState {
   font-weight: bold;
 }
 
-.postDetailContainer .moreComment {
-  color: gray;
-}
-
 .postDetailContainer .writeComment {
+  width: 96%;
+  height: 10%;
   border: 0px;
 }
 

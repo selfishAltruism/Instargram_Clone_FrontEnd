@@ -11,20 +11,21 @@ import "./App.css";
 
 export type PageState =
   | { loginState: false; actionState: "login" | "signin" | "searchPW" }
-  | { loginState: true; actionState: "home" };
+  | { loginState: true; actionState: "home" | "homePostDetail" };
 
 type Action =
-  | { type: "login" }
+  | { type: "login" | "home" }
   | { type: "signin" }
   | { type: "searchPW" }
-  | { type: "logout" };
+  | { type: "logout" }
+  | { type: "homePostDetail" };
 
 let pageState: PageState = { loginState: true, actionState: "home" };
 
 function PageStateReducer(state = pageState, action: Action): PageState {
   const pageStateCopy = { ...state };
   switch (action.type) {
-    case "login":
+    case "login" || "home":
       pageStateCopy.loginState = true;
       pageStateCopy.actionState = "home";
       return pageStateCopy;
@@ -38,6 +39,10 @@ function PageStateReducer(state = pageState, action: Action): PageState {
       pageStateCopy.loginState = false;
       pageStateCopy.actionState = "login";
       return pageStateCopy;
+    case "homePostDetail":
+      pageStateCopy.loginState = true;
+      pageStateCopy.actionState = "homePostDetail";
+      return pageStateCopy;
     default:
       return pageStateCopy;
   }
@@ -48,9 +53,7 @@ let store = createStore(PageStateReducer);
 function App() {
   return (
     <Provider store={store}>
-      {/* {!pageState.loginState ? <Logout /> : <Home />} */}
-      <Post />
-      {/* <PostDetail /> */}
+      {!pageState.loginState ? <Logout /> : <Home />}
     </Provider>
   );
 }

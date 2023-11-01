@@ -9,7 +9,7 @@ import {
   FiChevronRight,
 } from "react-icons/fi";
 
-import "./PostDetail.css";
+import "./css/PostDetail.css";
 
 type Comment = {
   time: Date;
@@ -26,29 +26,41 @@ function PostDetail() {
   const [commentState, SetCommentState] = useState<Comment[]>();
 
   return (
-    <div className="postDetailContainer">
-      <div className="postImgDiv">
-        <div className="postImg"></div>
-        <button className="postImgLeftButton">
-          <FiChevronLeft />
-        </button>
-        <button className="postImgRightButton">
-          <FiChevronRight />
-        </button>
-      </div>
-      <div className="postContentDiv">
-        <div className="userState">
-          <FiHeart /> <FiEdit3 />
+    <>
+      {pageState.loginState && pageState.actionState === "homePostDetail" ? (
+        <div id="postDetail" className="postDetailContainer">
+          <div className="postImgDiv">
+            <div className="postImg"></div>
+            <button className="postImgLeftButton">
+              <FiChevronLeft />
+            </button>
+            <button className="postImgRightButton">
+              <FiChevronRight />
+            </button>
+          </div>
+          <div className="postContentDiv">
+            <div className="userProfile">
+              <div className="userImg"></div>
+              <div className="block" />
+              <div className="userName">user</div>
+            </div>
+            <div className="Comment">
+              <div className="CommentUserProfile">
+                <div className="userImg"></div>
+                <div className="block" />
+                <div className="userName">user</div>
+                <div className="block" />
+                Last Comment Content
+              </div>
+            </div>
+            <div className="userState">
+              <FiHeart /> <FiEdit3 />
+            </div>
+            <input className="writeComment" placeholder="댓글 달기..." />
+          </div>
         </div>
-        <div className="heartState">좋아요 {3}개</div>
-        <div className="Comment">
-          <span className="CommentUser">User </span>
-          Last Comment Content
-        </div>
-        <div className="moreComment">더보기</div>
-        <input className="writeComment" placeholder="댓글 달기..." />
-      </div>
-    </div>
+      ) : null}
+    </>
   );
 }
 

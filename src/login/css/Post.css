@@ -17,6 +17,14 @@
   width: 100%;
 
   border: 0px;
+
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.postContainer .block {
+  width: 5px;
 }
 
 .postContainer .userImg {
@@ -83,11 +91,13 @@
 
 .postContainer .heartState,
 .postContainer .lastComment,
-.postContainer .moreComment {
+.postContainer .moreComment,
+.postContainer .userName {
   font-size: 11px;
 }
 
 .postContainer .lastCommentUser,
+.postContainer .userName,
 .postContainer .heartState {
   font-weight: bold;
 }
