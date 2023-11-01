@@ -1,3 +1,11 @@
+.homeOpacity * {
+  opacity: "0.4";
+}
+
+.home * {
+  opacity: "1";
+}
+
 .HomeUserProfile {
   position: fixed;
   top: 30px;

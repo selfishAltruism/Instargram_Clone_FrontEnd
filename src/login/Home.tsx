@@ -10,7 +10,7 @@ function Home() {
   const pageState: PageState = useSelector((state: PageState) => state);
 
   return (
-    <>
+    <div>
       <LeftMenu />
       <Post />
       <div className="HomeUserProfile">
@@ -21,7 +21,7 @@ function Home() {
           <div className="userRealName">user name</div>
         </div>
       </div>
-    </>
+    </div>
   );
 }
 
