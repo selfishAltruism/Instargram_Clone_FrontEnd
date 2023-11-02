@@ -1,0 +1,26 @@
+.user {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.user .block {
+  width: 5px;
+}
+
+.user .userImg {
+  height: 30px;
+  width: 30px;
+
+  border: 1px solid black;
+  border-radius: 15px;
+}
+
+.user .userName {
+  font-size: 11px;
+  font-weight: bold;
+}
+
+.user .userRealName {
+  font-weight: normal;
+}

@@ -2,6 +2,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { PageState } from "../App";
 import LeftMenu from "./LeftMenu";
 import Post from "./Post";
+import User from "./User";
 
 import "./css/Home.css";
 
@@ -13,14 +14,10 @@ function Home() {
     <>
       <LeftMenu />
       <Post />
-      <div className="HomeUserProfile">
-        <div className="userImg"></div>
-        <div className="block"></div>
-        <div className="userName">
-          <div>user</div>
-          <div className="userRealName">user name</div>
-        </div>
-      </div>
+      <User
+        userId=""
+        style={{ position: "fixed", top: "30px", right: "15%" }}
+      />
     </>
   );
 }
