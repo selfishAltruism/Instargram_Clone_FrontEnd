@@ -2,7 +2,7 @@ import "./css/User.css";
 
 type Prop = {
   userId: string;
-  style: React.CSSProperties;
+  style?: React.CSSProperties;
 };
 
 function User(prop: Prop) {

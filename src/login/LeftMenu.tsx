@@ -1,4 +1,5 @@
 import { useSelector, useDispatch } from "react-redux";
+import { useState } from "react";
 import { PageState } from "../App";
 import {
   FiHome,
@@ -10,19 +11,29 @@ import {
 } from "react-icons/fi";
 
 import "./css/LeftMenu.css";
+import UserSearch from "./UserSearch";
+import { SearchButtonHandler } from "./left_menu_handler";
 
 function LeftMenu() {
   const dispatch = useDispatch();
   const pageState: PageState = useSelector((state: PageState) => state);
 
+  const [userSearchOn, SetUserSearchOn] = useState(true);
+
   return (
     <>
+      {userSearchOn ? <UserSearch /> : null}
       <span className="HomeTitle">Instargram Clone</span>
       <div className="LeftMenuContainer">
         <button className="LeftMenuSelectButton">
           <FiHome />홈
         </button>
-        <button className="LeftMenuButton">
+        <button
+          id="searchButton"
+          className="LeftMenuButton"
+          style={{ fontWeight: userSearchOn ? "bold" : "normal" }}
+          onClick={() => SearchButtonHandler(userSearchOn, SetUserSearchOn)}
+        >
           <FiSearch />
           검색
         </button>

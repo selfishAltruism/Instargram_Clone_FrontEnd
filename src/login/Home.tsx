@@ -3,6 +3,7 @@ import { PageState } from "../App";
 import LeftMenu from "./LeftMenu";
 import Post from "./Post";
 import User from "./User";
+import UserSearch from "./UserSearch";
 
 import "./css/Home.css";
 
@@ -13,6 +14,8 @@ function Home() {
   return (
     <>
       <LeftMenu />
+      <Post />
+      <Post />
       <Post />
       <User
         userId=""
