@@ -25,7 +25,8 @@ let pageState: PageState = { loginState: true, actionState: "home" };
 function PageStateReducer(state = pageState, action: Action): PageState {
   const pageStateCopy = { ...state };
   switch (action.type) {
-    case "login" || "home":
+    case "login":
+      console.log("!!");
       pageStateCopy.loginState = true;
       pageStateCopy.actionState = "home";
       return pageStateCopy;
@@ -42,6 +43,11 @@ function PageStateReducer(state = pageState, action: Action): PageState {
     case "homePostDetail":
       pageStateCopy.loginState = true;
       pageStateCopy.actionState = "homePostDetail";
+      return pageStateCopy;
+    case "home":
+      console.log("!!");
+      pageStateCopy.loginState = true;
+      pageStateCopy.actionState = "home";
       return pageStateCopy;
     default:
       return pageStateCopy;
