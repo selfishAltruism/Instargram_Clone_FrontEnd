@@ -13,7 +13,7 @@ function Home() {
 
   return (
     <>
-      <LeftMenu />
+      <LeftMenu selectButton="home" />
       <Post />
       <Post />
       <Post />

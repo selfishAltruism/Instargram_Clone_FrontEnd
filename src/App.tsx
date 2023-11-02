@@ -8,6 +8,7 @@ import Post from "./login/Post";
 import PostDetail from "./login/PostDetail";
 
 import "./App.css";
+import Message from "./login/Message";
 
 export type PageState =
   | { loginState: false; actionState: "login" | "signin" | "searchPW" }
@@ -59,7 +60,8 @@ let store = createStore(PageStateReducer);
 function App() {
   return (
     <Provider store={store}>
-      {!pageState.loginState ? <Logout /> : <Home />}
+      {/* {!pageState.loginState ? <Logout /> : <Home />} */}
+      <Message />
     </Provider>
   );
 }

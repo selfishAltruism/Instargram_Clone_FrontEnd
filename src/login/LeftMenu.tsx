@@ -14,18 +14,28 @@ import "./css/LeftMenu.css";
 import UserSearch from "./UserSearch";
 import { SearchButtonHandler } from "./left_menu_handler";
 
-function LeftMenu() {
+type Prop = {
+  selectButton: "home" | "message" | "profile";
+};
+
+function LeftMenu(prop: Prop) {
+  const { selectButton } = prop;
+
   const dispatch = useDispatch();
   const pageState: PageState = useSelector((state: PageState) => state);
 
-  const [userSearchOn, SetUserSearchOn] = useState(true);
+  const [userSearchOn, SetUserSearchOn] = useState(false);
 
   return (
     <>
       {userSearchOn ? <UserSearch /> : null}
       <span className="HomeTitle">Instargram Clone</span>
       <div className="LeftMenuContainer">
-        <button className="LeftMenuSelectButton">
+        <button
+          className={
+            selectButton === "home" ? "LeftMenuSelectButton" : "LeftMenuButton"
+          }
+        >
           <FiHome />홈
         </button>
         <button
@@ -37,7 +47,13 @@ function LeftMenu() {
           <FiSearch />
           검색
         </button>
-        <button className="LeftMenuButton">
+        <button
+          className={
+            selectButton === "message"
+              ? "LeftMenuSelectButton"
+              : "LeftMenuButton"
+          }
+        >
           <FiNavigation />
           메시지
         </button>
@@ -49,7 +65,13 @@ function LeftMenu() {
           <FiPlusSquare />
           만들기
         </button>
-        <button className="LeftMenuButton">
+        <button
+          className={
+            selectButton === "profile"
+              ? "LeftMenuSelectButton"
+              : "LeftMenuButton"
+          }
+        >
           <FiUser />
           프로필
         </button>

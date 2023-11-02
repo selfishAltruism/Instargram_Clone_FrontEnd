@@ -1,0 +1,28 @@
+.messageContainer {
+  position: fixed;
+  top: 0px;
+  left: 16%;
+
+  width: 84%;
+  height: 100%;
+
+  display: flex;
+  flex-direction: row;
+}
+
+.messageContainer .messageTargerUserContainer {
+  width: 30%;
+  height: 100%;
+
+  border-left: 1px solid gray;
+
+  background-color: aqua;
+}
+
+.messageContainer .messageContentContainer {
+  width: 70%;
+  height: 100%;
+
+  border-left: 1px solid gray;
+  border-right: 1px solid gray;
+}
