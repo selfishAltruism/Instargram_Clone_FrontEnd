@@ -11,11 +11,6 @@ function Home() {
 
   return (
     <>
-      <div
-        className={
-          pageState.actionState === "homePostDetail" ? "homeOpacity" : "home"
-        }
-      ></div>
       <LeftMenu />
       <Post />
       <div className="HomeUserProfile">
