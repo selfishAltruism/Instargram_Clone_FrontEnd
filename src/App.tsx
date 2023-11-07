@@ -21,7 +21,7 @@ type Action =
   | { type: "logout" }
   | { type: "homePostDetail" };
 
-let pageState: PageState = { loginState: true, actionState: "home" };
+let pageState: PageState = { loginState: false, actionState: "login" };
 
 function PageStateReducer(state = pageState, action: Action): PageState {
   const pageStateCopy = { ...state };
@@ -60,8 +60,8 @@ let store = createStore(PageStateReducer);
 function App() {
   return (
     <Provider store={store}>
-      {/* {!pageState.loginState ? <Logout /> : <Home />} */}
-      <Message />
+      {!pageState.loginState ? <Logout /> : <Home />}
+      {/* <Message /> */}
     </Provider>
   );
 }
