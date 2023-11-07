@@ -5,7 +5,7 @@ import "./Logout.css";
 import LoginForm from "./LoginForm";
 import SigninForm from "./SigninForm";
 import SearchPWForm from "./SearchPWForm";
-import { PageState } from "../App";
+import { PageState } from "../store";
 
 function Logout(props: any) {
   const dispatch = useDispatch();

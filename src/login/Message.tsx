@@ -1,5 +1,5 @@
 import { useSelector, useDispatch } from "react-redux";
-import { PageState } from "../App";
+import { PageState } from "../store";
 import LeftMenu from "./LeftMenu";
 import User from "./User";
 

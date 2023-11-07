@@ -1,6 +1,6 @@
 import { useSelector, useDispatch } from "react-redux";
 import { useState } from "react";
-import { PageState } from "../App";
+import { usePageStateDispatch, usePageStateSelector } from "../store";
 import {
   FiHome,
   FiSearch,
@@ -21,8 +21,8 @@ type Prop = {
 function LeftMenu(prop: Prop) {
   const { selectButton } = prop;
 
-  const dispatch = useDispatch();
-  const pageState: PageState = useSelector((state: PageState) => state);
+  const dispatch = usePageStateDispatch();
+  const pageState = usePageStateSelector((state) => state.pageState);
 
   const [userSearchOn, SetUserSearchOn] = useState(false);
 

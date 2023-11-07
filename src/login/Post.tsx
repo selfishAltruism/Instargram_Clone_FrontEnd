@@ -1,5 +1,5 @@
 import { useSelector, useDispatch } from "react-redux";
-import { PageState } from "../App";
+import { PageState } from "../store";
 import { useState, useRef } from "react";
 import { CommentHandler } from "./home_handler";
 import PostDetail from "./PostDetail";
