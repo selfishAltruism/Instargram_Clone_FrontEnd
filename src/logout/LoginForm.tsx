@@ -1,4 +1,8 @@
 import { useForm, SubmitHandler } from "react-hook-form";
+import { useStateDispatch, signin } from "../store";
+
+import { useContext } from "react";
+import { loginContext } from "./Logout";
 
 import "./LoginForm.css";
 
@@ -8,8 +12,14 @@ type LoginIFormInput = {
 };
 
 function LoginForm() {
+  const { id, pw, SetId, SetPw } = useContext(loginContext);
+
   const { register, handleSubmit } = useForm<LoginIFormInput>();
-  const onSubmit: SubmitHandler<LoginIFormInput> = (data) => console.log(data);
+  const onSubmit: SubmitHandler<LoginIFormInput> = (data) => {
+    SetId!(data.id);
+    SetPw!(data.password);
+  };
+  const dispatch = useStateDispatch();
 
   return (
     <>

@@ -5,13 +5,6 @@ export type PageState =
   | { loginState: false; actionState: "login" | "signin" | "searchPW" }
   | { loginState: true; actionState: "home" | "homePostDetail" };
 
-type Action =
-  | { type: "login" | "home" }
-  | { type: "signin" }
-  | { type: "searchPW" }
-  | { type: "logout" }
-  | { type: "homePostDetail" };
-
 let pageState: PageState = { loginState: false, actionState: "login" };
 
 const pageStateSlice = createSlice({
@@ -47,15 +40,47 @@ export const { login, signin, search, logout, homePostDetail, home } =
   pageStateSlice.actions;
 export const pageStateAction = pageStateSlice.reducer;
 
+export type UserState = {
+  id: string;
+  name: string;
+  islogin: boolean;
+};
+
+let userState: UserState = {
+  id: "",
+  name: "",
+  islogin: false,
+};
+
+const userStateSlice = createSlice({
+  name: "userState",
+  initialState: userState,
+  reducers: {
+    userlogin: (state, action) => {
+      state.id = action.payload.id;
+      state.name = action.payload.name;
+      state.islogin = true;
+    },
+    userlogout: (state, action) => {
+      state.id = "";
+      state.name = "";
+      state.islogin = false;
+    },
+  },
+});
+
+export const { userlogin, userlogout } = userStateSlice.actions;
+
 const store = configureStore({
   reducer: {
     pageState: pageStateAction,
+    userState: userStateSlice.reducer,
   },
 });
 
 export default store;
 
-export const usePageStateDispatch = () => useDispatch<typeof store.dispatch>();
-export const usePageStateSelector: TypedUseSelectorHook<
+export const useStateDispatch = () => useDispatch<typeof store.dispatch>();
+export const useStateSelector: TypedUseSelectorHook<
   ReturnType<typeof store.getState>
 > = useSelector;

@@ -1,7 +1,7 @@
 import { useState, useRef } from "react";
 import { Provider } from "react-redux";
 
-import { pageStateAction, usePageStateSelector } from "./store";
+import { pageStateAction, useStateSelector } from "./store";
 
 import "./App.css";
 
@@ -11,8 +11,10 @@ import Post from "./login/Post";
 import PostDetail from "./login/PostDetail";
 import Message from "./login/Message";
 
+export const BASEURL = "";
+
 function App() {
-  const pageState = usePageStateSelector((state) => state.pageState);
+  const pageState = useStateSelector((state) => state.pageState);
   return (
     <>
       {!pageState.loginState ? <Logout /> : <Home />}
