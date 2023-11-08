@@ -4,6 +4,7 @@ import {
   useStateSelector,
   signin,
   UserState,
+  userlogin,
 } from "../store";
 import { BASEURL } from "../App";
 
@@ -26,20 +27,6 @@ type LoginContext = {
 
 export const loginContext = createContext<LoginContext>({});
 
-const PostLogIn = async (id: string, pw: string) => {
-  try {
-    const res = await axios({
-      url: "/trylogin",
-      method: "post",
-      baseURL: BASEURL,
-      data: {
-        id: id,
-        pw: pw,
-      },
-    });
-  } catch {}
-};
-
 function Logout(props: any) {
   const dispatch = useStateDispatch();
   const pageState: PageState = useStateSelector((state) => state.pageState);
@@ -47,6 +34,28 @@ function Logout(props: any) {
 
   const [id, SetId] = useState("");
   const [pw, SetPw] = useState("");
+
+  const PostLogIn = async (id: string, pw: string) => {
+    try {
+      const res = await axios({
+        url: "/trylogin",
+        method: "post",
+        baseURL: BASEURL,
+        data: {
+          id: id,
+          pw: pw,
+        },
+      });
+
+      if (res.status === 200)
+        dispatch(
+          userlogin({ payload: { id: res.data.id, name: res.data.name } })
+        );
+      if (res.status === 201) console.log("your input is dismatch with DB");
+    } catch (error) {
+      console.log("can't use login system", error);
+    }
+  };
 
   useEffect(() => {}, [id, pw]);
 
