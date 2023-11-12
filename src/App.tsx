@@ -11,7 +11,7 @@ import Post from "./login/Post";
 import PostDetail from "./login/PostDetail";
 import Message from "./login/Message";
 
-export const BASEURL = "";
+export const BASEURL = "http://127.0.0.1:12010/";
 
 function App() {
   const pageState = useStateSelector((state) => state.pageState);

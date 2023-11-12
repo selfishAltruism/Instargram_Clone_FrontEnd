@@ -5,10 +5,12 @@ import {
   signin,
   UserState,
   userlogin,
+  home,
+  login,
 } from "../store";
 import { BASEURL } from "../App";
 
-import { useState, createContext, Provider, useEffect } from "react";
+import { useState, createContext, Provider, useEffect, useRef } from "react";
 
 import "./Logout.css";
 
@@ -38,26 +40,41 @@ function Logout(props: any) {
   const PostLogIn = async (id: string, pw: string) => {
     try {
       const res = await axios({
-        url: "/trylogin",
+        url: "/login",
         method: "post",
         baseURL: BASEURL,
+        headers: {
+          "Content-Type": "application/json",
+        },
         data: {
           id: id,
           pw: pw,
         },
       });
-
-      if (res.status === 200)
+      if (res.status === 200) {
         dispatch(
           userlogin({ payload: { id: res.data.id, name: res.data.name } })
         );
-      if (res.status === 201) console.log("your input is dismatch with DB");
+        dispatch(login());
+      }
+      if (res.status === 300) console.log("your input is dismatch with DB");
     } catch (error) {
       console.log("can't use login system", error);
     }
   };
 
-  useEffect(() => {}, [id, pw]);
+  const useDidMountEffect = (func: any, deps: any[]) => {
+    const didMount = useRef(false);
+
+    useEffect(() => {
+      if (didMount.current) func();
+      else didMount.current = true;
+    }, deps);
+  };
+
+  useDidMountEffect(() => {
+    PostLogIn(id, pw);
+  }, [id, pw]);
 
   return (
     <loginContext.Provider value={{ id, pw, SetId, SetPw }}>
